@@ -1,9 +1,8 @@
-
 import React, { Component } from "react";
-import FormInput from '../form-input/form-input.component';
-import CustomButton from '../custom-button/custom-button.component';
-import {signInWithGoogle} from '../../firebase/firebase.util';
-import './sign-in.styles.scss';
+import FormInput from "../form-input/form-input.component";
+import CustomButton from "../custom-button/custom-button.component";
+import { signInWithGoogle } from "../../firebase/firebase.util";
+import "./sign-in.styles.scss";
 export default class SignIn extends Component {
   constructor() {
     super();
@@ -18,7 +17,7 @@ export default class SignIn extends Component {
   };
   handleChange = (event) => {
     const { value, name } = event.target;
-    this.setState({[name]: value})
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -44,8 +43,12 @@ export default class SignIn extends Component {
             handleChange={this.handleChange}
             required
           />
-          <CustomButton type="submit">Sign In</CustomButton>
-          <CustomButton onClick={signInWithGoogle}>Sign In with Google</CustomButton>
+          <div className="buttons">
+            <CustomButton type="submit">Sign In</CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              Sign In with Google
+            </CustomButton>
+          </div>
         </form>
       </div>
     );
